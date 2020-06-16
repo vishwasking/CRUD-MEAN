@@ -1,0 +1,58 @@
+<div>
+  <mat-card>
+    <mat-card-title>Create Operation</mat-card-title>
+    <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+      <mat-card-title>
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+      </mat-card-title>
+      <mat-card-title>
+        <input type="text" name="name" #name="ngModel" placeholder="Enter Full Name" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
+      </mat-card-title>
+      <mat-card-title>
+        <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Eg : Snr. Developer">
+      </mat-card-title>
+      <mat-card-title>
+        <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter feedback">
+      </mat-card-title>
+      <mat-card-title>
+        <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary per annum">
+      </mat-card-title>
+      <div class="row">
+        <div class="input-field col s12">
+          <button  mat-raised-button color="warn" type="button" (click)="resetForm(employeeForm)">Reset</button>
+          <button  mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">Submit Details</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<div>
+  <mat-card>
+    <h1>Read, Update and Delete Operation</h1>
+    <mat-expansion-panel *ngFor="let emp of employeeService.employees">
+      <mat-expansion-panel-header>
+        {{emp.name}}
+      </mat-expansion-panel-header>
+      <mat-action-row>
+      <table class="responsive-table highlight">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Feedback</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+          <tr>
+            <td>{{emp.position}}</td>
+            <td>{{emp.office}}</td>
+            <td>{{emp.salary}}</td>
+            <td>
+              <a class="action-btn" (click)="onEdit(emp)"><i class="material-icons">edit</i></a>
+              <a class="action-btn" (click)="onDelete(emp._id,employeeForm)"><i class="material-icons">delete</i></a>
+            </td>
+          </tr>
+        </table>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-card>
+</div>

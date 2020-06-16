@@ -1,0 +1,2 @@
+cd C:\Users\VISHWAS\Downloads\mongodb-win32-x86_64-2012plus-4.2.7\mongodb-win32-x86_64-2012plus-4.2.7\bin
+mongod.exe --dbpath C:\Users\VISHWAS\Downloads\mongodb-win32-x86_64-2012plus-4.2.7\mongodb-win32-x86_64-2012plus-4.2.7\bin
